@@ -26,6 +26,10 @@ Ref: [https://www.splunk.com/en_us/download/splunk-enterprise.html](https://www.
 
 The ipgeolocation.io App provides an integration between ipgeolocation.io's API & Database products and Splunk. This app adds the `ipgeolocation` and `ipgeolocationbatch` commands to Splunk, which uses ipgeolocation.io data via the API or Databases to lookup IP information for a given IP address.
 
+# Pre-requisites
+
+You need to sign up for an account on [ipgeolocation.io](https://app.ipgeolocation.io/signup) and buy an API or a Database subscription to use ipgeolocation.io App. App won't work with a free subscription.
+
 # Installation
 
 **NOTE**: There are multiple ways of deploying apps to Splunk environment, in this document we’ll be referring installation via CLI (Command Line Interface).
