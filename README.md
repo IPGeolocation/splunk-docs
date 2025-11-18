@@ -401,6 +401,12 @@ Above example looks up IP to security, location, hostname, and all information u
 | ipgeolocation IP allinfo=true
 ```
 
+### `ipgeolocationbatch` (5 IP addresses, allinfo)
+
+```
+| ipgeolocationbatch ips="23.87.43.1,87.49.22.1,191.69.47.0,88.0.7.33,201.52.77.99" allinfo=true
+```
+
 Similarly, you can use `ipsecurity` and `ipsecuritybatch` commands and set flags on them as you need to.
 
 ## Dashboard
