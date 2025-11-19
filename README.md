@@ -8,13 +8,13 @@
 
 **Latest Update Date**: November 10, 2025
 
-# Supported Operating Systems
+## Supported Operating Systems
 
 All Splunk supported Operating Systems (Windows, Linux, Mac)
 
 Ref: [https://www.splunk.com/en_us/download/splunk-enterprise.html](https://www.splunk.com/en_us/download/splunk-enterprise.html)
 
-# Supported Splunk Version
+## Supported Splunk Version
 
 | Splunk |
 | --- |
@@ -26,7 +26,7 @@ Ref: [https://www.splunk.com/en_us/download/splunk-enterprise.html](https://www.
 | Splunk 10.0 |
 | Splunk 10.1 |
 
-# Introduction
+## Introduction
 
 The ipgeolocation.io App for Splunk integrates ipgeolocation.io's API & Database products into Splunk. This app adds 4 commands to the Splunk:
 - `ipgeolocation`
@@ -36,15 +36,15 @@ The ipgeolocation.io App for Splunk integrates ipgeolocation.io's API & Database
 
 The above commands lookup IP to location, hostname, network, autonomous system (AS), security, and timezone information from ipgeolocation.io API or database as configured.
 
-# Pre-requisites
+## Pre-requisites
 
 You need to sign up at [ipgeolocation.io](https://app.ipgeolocation.io/signup) and buy an API or a Database subscription to use ipgeolocation.io App for Splunk. The app won't work with free API subscription.
 
-# Installation
+## Installation
 
 **NOTE**: There are multiple ways of deploying apps to Splunk environment and in this document, we’ll be referring installation via CLI (Command Line Interface).
 
-## Case 1: Single Stand Alone Splunk Installation (CLI)
+### Case 1: Single Stand Alone Splunk Installation (CLI)
 
 Single standalone Splunk Enterprise Installation on Windows/*NIX
 
@@ -52,7 +52,7 @@ Single standalone Splunk Enterprise Installation on Windows/*NIX
 2. **Copy** the unzipped directory **ipgeolocation_app** to **$SPLUNK_HOME/etc/apps/**
 3. **Open CLI** and restart Splunk using **./splunk restart**
 
-## Case 2: Distributed Architecture
+### Case 2: Distributed Architecture
 
 Single Indexer Single Search Head and Single Forwarder (Heavy or Universal) and Deployment server
 
@@ -71,7 +71,7 @@ Single Indexer Single Search Head and Single Forwarder (Heavy or Universal) and 
     
 4. **Open CLI** and deploy the apps using following command: **./splunk reload deploy-server**
 
-## Case 3: Distributed Architecture
+### Case 3: Distributed Architecture
 
 Multiple non-clustered Indexers, Multiple non-clustered Search Heads, Forwarder (Heavy or Universal) and Deployment server
 
@@ -87,7 +87,7 @@ Multiple non-clustered Indexers, Multiple non-clustered Search Heads, Forwarder 
 
 4. **Open CLI** and deploy the apps using following command: **./splunk reload deploy-server**
 
-## Case 4: Distributed Architecture
+### Case 4: Distributed Architecture
 
 Single Site Clustered Indexer, Clustered Search Heads and Forwarder (Heavy or Universal).
 
@@ -99,7 +99,7 @@ Single Site Clustered Indexer, Clustered Search Heads and Forwarder (Heavy or Un
     ./splunk apply shcluster-bundle -target <URI>:<management_port> -auth <username>:<password>
     ```
     
-## Case 5: Standalone Installation (WEB)
+### Case 5: Standalone Installation (WEB)
 
 1. On the Splunk Home Page, Click on “Manage”
     
@@ -115,7 +115,7 @@ Single Site Clustered Indexer, Clustered Search Heads and Forwarder (Heavy or Un
     
 4. It is a good practice to restart the Splunk, please restart
 
-# Configuration
+## Configuration
 
 1. After installation and restart, login to the Splunk web.
 2. Go to 'Manage' under Apps in the left bar.
@@ -126,7 +126,7 @@ Single Site Clustered Indexer, Clustered Search Heads and Forwarder (Heavy or Un
 ![Manage_Set_up](assets/Manage_Set_up.png)
 
 
-## API Configuration
+### API Configuration
 
 Select _Fetch Details via Rest API_ in the Lookup Method to use your API subscription in the ipgeolocation.io App for Splunk, provide the API Key for your API subscription in the **Key for API Subscription**, and select the plan for your API subscription. These are only 3 inputs required to use ipgeolocation.io API with Splunk.
 
@@ -140,13 +140,13 @@ Here are the required proxy configuration details:
 
 Finally, click **Submit**.
 
-## MMDB Configuration
+### MMDB Configuration
 
 Select _Use MMDB_ option in the Lookup Method to use your database subscription on ipgeolocation.io with Splunk.
 
 You have the following choices to setup the app for ipgeolocation.io databases:
 
-### Download MMDB on each Search Head (Used for Search Head Cluster Only)
+#### Download MMDB on each Search Head (Used for Search Head Cluster Only)
 
 If you've a search head cluster deployed:
 
@@ -155,11 +155,11 @@ If you've a search head cluster deployed:
 
 Syncing will be a bit slow as compared to separate download as it has to copy MMDBs to all search heads.
 
-### Replicate MMDB on Indexers
+#### Replicate MMDB on Indexers
 
 Select "**Yes**" against "**Replicate MMDB on Indexers**" to enable replication on MMDB bundle. This will also make a bunch of changes in the code that will enable *ipgeolocation* & *ipsecurity* to work in streaming mode. This is expected to cause performance boost on the query at the expense of increase in bundle size. This setting is applicable if you're using ipgeolocation.io app on splunk search head cluster and you have indexer cluster.
 
-### MMDB Subscription Credentials
+#### MMDB Subscription Credentials
 
 Following ipgeolocation.io databases are supported in the ipgeolocation.io App for Splunk:
 
@@ -187,15 +187,15 @@ It is possible to subscribe more than one databases on ipgeolocation.io. So, the
 
 For your subscribed database plans on ipgeolocation.io, provide the following configuration to enable the ipgeolocation.io app for MMDB lookup.
 
-#### Enable
+##### **Enable**
 
 Select "**Yes**" against *Enable* buttons to enable MMDB lookup from it.
 
-#### Key
+##### **Key**
 
 Provide the database subscription's API key in the *Key* box to authenticate database downloads.
 
-#### Update Interval
+##### **Update Interval**
 
 Also select 'Weekly' or 'Daily' button *update interval* so that the app can correctly download database updates at right interval.
 
