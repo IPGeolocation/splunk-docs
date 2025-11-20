@@ -272,8 +272,8 @@ In this example, `ipgeolocationbatch` command looks up IP to location for `1.0.0
 | `dma` | `boolean` | `false` | `true`, `false` | Lookup DMA (Designated Market Area) Code for the location of IP address. |
 | `security` | `boolean` | `false` | `true`, `false` | Lookup security information for an IP address. |
 | `timezone` | `boolean` | `false` | `true`, `false` | Lookup time zone details for the location of IP address. |
-| `allinfo` | `boolean` | `false` | `true`, `false` | Lookup abuse contact, DMA (Designated Market Area) code, security and time zone details for the provided IP address. |
 | `language` | `string` | `en` | `en`, `de`, `ru`, `ja`, `fr`, `cn`, `es`, `cs`, `it`, `ko`, `fa`, `pt` | Set the response language for search results. |
+| `allinfo` | `boolean` | `false` | `true`, `false` | Lookup abuse contact, DMA (Designated Market Area) code, security and time zone details for the provided IP address. |
 
 Set any of the above flags on `ipgeolocationbatch` command to query required information.
 
@@ -295,9 +295,10 @@ Above example looks up IP to security, location, hostname, and all information u
 |------|------|---------------|-----------------|-------------|
 | `liveHostname` | `boolean` | `false` | `true`, `false` | Lookup live hostname for the IP address. Supported on lookup from ipgeolocation.io API only. |
 | `hostnameFallbackLive` | `boolean` | `false` | `true`, `false` | Lookup hostname for the IP address from database and fallback to live lookup if not in the database. Supported on lookup from ipgeolocation.io API only. |
-| `abuseContact` | `boolean` | `false` | `true`, `false` | Lookup abuse contact details for an IP address. |
-| `dma` | `boolean` | `false` | `true`, `false` | Lookup DMA (Designated Market Area) Code for the location of IP address. |
-| `security` | `boolean` | `false` | `true`, `false` | Lookup security information for an IP address. |
+| `location` | `boolean` | `false` | `true`, `false` | Lookup location information for an IP address. |
+| `countryMetadata` | `boolean` | `false` | `true`, `false` | Lookup country metadata for the location of IP address. |
+| `network` | `boolean` | `false` | `true`, `false` | Lookup network information for an IP address. |
+| `currency` | `boolean` | `false` | `true`, `false` | Lookup local currency information for the location of IP address. |
 | `timezone` | `boolean` | `false` | `true`, `false` | Lookup time zone details for the location of IP address. |
 | `allinfo` | `boolean` | `false` | `true`, `false` | Lookup abuse contact, DMA (Designated Market Area) code, security and time zone details for the provided IP address. |
 | `prefix` | `boolean` | `false` | `true`, `false` | Prefix query name to all fields in the response. |
@@ -316,17 +317,17 @@ Above example looks up IP to security, location, hostname, and all information u
 
 #### Optional Flags
 
-| Flag | Type | Default Value, if not provided | Accepted Values | Description |
+| Flag | Type | Default Value | Accepted Values | Description |
 |------|------|---------------|-----------------|-------------|
-| `ips` | `string` | `''` | `string` | Comma-separated list of IP addresses to search IP information for. It must be provided. |
-| `liveHostname` | `boolean` | `false` | `true`, `false` | Lookup live hostname for the IP address. Supported only on lookup from ipgeolocation.io API. |
-| `hostnameFallbackLive` | `boolean` | `false` | `true`, `false` | Lookup hostname for the IP address from database and fallback to live lookup if not in the database. Supported only on lookup from ipgeolocation.io API. |
+| `ips` | `string` | `''` | `string` | Provide a list of up to 50,000 IP addresses, joined with a comma as a string. It must be provided. |
+| `liveHostname` | `boolean` | `false` | `true`, `false` | Lookup live hostname for the IP address. Supported on lookup from ipgeolocation.io API only. |
+| `hostnameFallbackLive` | `boolean` | `false` | `true`, `false` | Lookup hostname for the IP address from database and fallback to live lookup if not in the database. Supported on lookup from ipgeolocation.io API only. |
 | `location` | `boolean` | `false` | `true`, `false` | Lookup location information for an IP address. |
 | `countryMetadata` | `boolean` | `false` | `true`, `false` | Lookup country metadata for the location of IP address. |
 | `network` | `boolean` | `false` | `true`, `false` | Lookup network information for an IP address. |
 | `currency` | `boolean` | `false` | `true`, `false` | Lookup local currency information for the location of IP address. |
-| `timezone` | `boolean` | `false` | `true`, `false` | Lookup timezone details for the location of IP address. |
-| `allinfo` | `boolean` | `false` | `true`, `false` | Lookup location, country metadata, network, currency and time zone details along with security information for an IP address. |
+| `timezone` | `boolean` | `false` | `true`, `false` | Lookup time zone details for the location of IP address. |
+| `allinfo` | `boolean` | `false` | `true`, `false` | Lookup abuse contact, DMA (Designated Market Area) code, security and time zone details for the provided IP address. |
 | `language` | `string` | `en` | `en`, `de`, `ru`, `ja`, `fr`, `cn`, `es`, `cs`, `it`, `ko`, `fa`, `pt` | Set the response language for search results. |
 
 
